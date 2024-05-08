@@ -81,6 +81,14 @@ class _GroubState extends State<Groub> {
               alignment: AlignmentDirectional.bottomCenter,
               height: screenHeight * 0.7,
               decoration: BoxDecoration(
+                boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                 color: Colors.transparent,
                 borderRadius: const BorderRadius.all(Radius.circular(24)),
                 image: DecorationImage(
@@ -136,6 +144,14 @@ class _GroubState extends State<Groub> {
               width: screenWidth * 0.7,
               height: screenHeight * 0.69,
               decoration: BoxDecoration(
+                boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        spreadRadius: 5,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                 color: Colors.transparent,
                 borderRadius: const BorderRadius.all(Radius.circular(24)),
                 image: DecorationImage(

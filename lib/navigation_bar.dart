@@ -62,14 +62,33 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: screenWidth * 0.9,
                         height: screenHeight * 0.08,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                           boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                          borderRadius: BorderRadius.circular(20),
                           color: const Color.fromARGB(199, 146, 112, 57),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          
                           children: [
-                            _buildIconButton(Icons.home, 0, _isHomeSelected),
-                            _buildIconButton(Icons.person_2, 2, _isRegisterSelected),
+                          Container(width: screenWidth*0.45,height: screenHeight*0.08,decoration: BoxDecoration(
+                            color: const Color.fromARGB(199, 146, 112, 57),
+                            borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Center(child:   _buildIconButton(Icons.home, 0, _isHomeSelected),),
+                          ),),
+                          Container(width:screenWidth*0.45 , decoration: BoxDecoration(color: const Color.fromARGB(199, 146, 112, 57),borderRadius: BorderRadius.circular(20)),
+                          height: screenHeight*0.08 ,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Center(child: _buildIconButton(Icons.person_2, 2, _isRegisterSelected)),
+                          ),)
                           ],
                         ),
                       ),
@@ -127,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: const BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))
               
               
-              , color: Color.fromARGB(255, 226, 226, 226),),
+              , color:  Color.fromARGB(255, 226, 226, 226),),
           child: Center(
             child: Container(
               width: 60,

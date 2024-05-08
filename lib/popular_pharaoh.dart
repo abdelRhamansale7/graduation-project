@@ -66,8 +66,8 @@ class PharaohsScreen extends StatelessWidget {
                 height: screenWidth * 0.78,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: screenWidth * 0.05,
-                    left: screenWidth * 0.05,
+                    top: screenWidth * 0.01,
+                    left: screenWidth * 0.03,
                     right: screenWidth * 0.05,
                   ),
                   child: ListView.builder(
@@ -76,7 +76,7 @@ class PharaohsScreen extends StatelessWidget {
                     itemBuilder: (_, index) {
                       return SizedBox(
                         width: screenWidth * 0.85,
-                        height: screenWidth * 0.003,
+                        height: screenWidth * 0.002,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -91,11 +91,19 @@ class PharaohsScreen extends StatelessWidget {
                           },
                           child: Stack(
                             children:[ Container(
-                              height: screenWidth*0.8,
+                              height: screenWidth*0.75,
                               width: screenWidth*0.9,
                               margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
+                                 boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        spreadRadius: 5,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                                borderRadius: BorderRadius.circular(30),
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
