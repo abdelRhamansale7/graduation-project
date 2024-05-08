@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharera/exipition_photo.dart';
+import 'package:pharera/exipition_video.dart';
 
 class Tut extends StatefulWidget {
   const Tut({Key? key}) : super(key: key);
@@ -62,9 +63,7 @@ class _TutState extends State<Tut> with SingleTickerProviderStateMixin {
                   controller: ta,
                   children: const [
                     TutPic(),
-                    Center(
-                      child: Text('Content for Tab 8'),
-                    ),
+                   TutVid(),
                   ],
                 ),
               ),

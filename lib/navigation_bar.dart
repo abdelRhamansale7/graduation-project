@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:pharera/main_up.dart';
 import 'package:pharera/Panorama.dart';
 import 'package:pharera/register.dart';
@@ -14,9 +13,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
+  bool _isHomeSelected = false;
+  bool _isVITSelected = false;
+  bool _isRegisterSelected = false;
 
   static final List<Widget> _pages = <Widget>[
-     const HomePage(),
+    const HomePage(),
     const VITPage(),
     const Register(),
   ];
@@ -24,18 +26,142 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      _isHomeSelected = index == 0;
+      _isVITSelected = index == 1;
+      _isRegisterSelected = index == 2;
     });
   }
-
-  void CurrentI = 0;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: ConvexAppBar(
+      body: Stack(
+        children: [
+          _pages[_selectedIndex],
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Container(
+                margin: const EdgeInsets.only(top: 40),
+                width: 10,
+                height: screenHeight * 0.09,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.transparent, // Set to transparent
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 20),
+                      child: Container(
+                        width: screenWidth * 0.9,
+                        height: screenHeight * 0.08,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(199, 146, 112, 57),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            _buildIconButton(Icons.home, 0, _isHomeSelected),
+                            _buildIconButton(Icons.person_2, 2, _isRegisterSelected),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: _builDButton( _isVITSelected)
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildIconButton(IconData icon, int index, bool isSelected) {
+    return GestureDetector(
+      onTap: () {
+        _onItemTapped(index);
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 30,
+            color:  Colors.white ,
+          ),
+          const SizedBox(height: 4),
+          Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isSelected ? const Color.fromARGB(255, 226, 226, 226) : Colors.transparent,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  Widget _builDButton(bool isSelected) {
+  return GestureDetector(
+    onTap: () {
+      _onItemTapped(1);
+    },
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+           width: 73,
+              height: 60,
+              decoration: const BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))
+              
+              
+              , color: Color.fromARGB(255, 226, 226, 226),),
+          child: Center(
+            child: Container(
+              width: 60,
+              height: 53,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(199, 146, 112, 57),
+              ),
+              child: Center(
+                child:ClipRRect(borderRadius: BorderRadius.circular(20),child: Image.asset("assets/images/360.png",fit: BoxFit.fill,))
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: isSelected ? const Color.fromARGB(255, 226, 226, 226) : Colors.transparent,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+
+}
+
+ 
+
+/*ConvexAppBar(
 
         items: [
           TabItem(icon: Icon(Icons.home, size: screenHeight * 0.04, color: const Color.fromARGB(255, 226, 226, 226),)),
@@ -47,8 +173,4 @@ class _MyHomePageState extends State<MyHomePage> {
         initialActiveIndex: _selectedIndex,
         onTap: _onItemTapped,
         height: screenHeight * 0.07,
-      ),
-
-    );
-  }
-}
+      ),*/

@@ -63,7 +63,7 @@ class PharaohsScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: screenWidth * 0.8,
+                height: screenWidth * 0.78,
                 child: Padding(
                   padding: EdgeInsets.only(
                     top: screenWidth * 0.05,
@@ -76,7 +76,7 @@ class PharaohsScreen extends StatelessWidget {
                     itemBuilder: (_, index) {
                       return SizedBox(
                         width: screenWidth * 0.85,
-                        height: screenWidth * 0.007,
+                        height: screenWidth * 0.003,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
