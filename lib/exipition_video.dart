@@ -22,36 +22,29 @@ class TutVid extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 226, 226, 226),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: SizedBox(
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: screenHeight * 0.03, bottom: screenHeight * 0.03),
-                child: const Center(
-                  child: Text(
-                    "Exhibition Video",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
+              SizedBox(height: screenHeight * 0.03),
               SizedBox(
-                height: screenHeight * 0.7,
+                height: screenHeight * 0.78,
                 child: ListView.separated(
-                  scrollDirection: Axis.vertical,
+                 
                   itemCount: videoAssets.length,
                   separatorBuilder: (BuildContext context, int index) {
                     return SizedBox(height: screenHeight * 0.03);
                   },
                   itemBuilder: (_, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: screenWidth * 0.04),
+                      padding: EdgeInsets.only(left: screenWidth * 0.02),
                       child: Stack(
                         children: [
                           Container(
                             width: screenWidth * 0.85,
-                            height: screenHeight * 0.32, // Adjust height as needed
+                            height: screenHeight * 0.32, 
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               color: Colors.black,
@@ -111,7 +104,7 @@ class _VideoItemState extends State<VideoItem> {
                 ? VideoPlayer(_controller)
                 : const CircularProgressIndicator(),
             _isPlaying
-                ? const SizedBox.shrink() // If video is playing, don't show play button
+                ? const SizedBox.shrink() 
                 : GestureDetector(
                     onTap: () {
                       setState(() {
