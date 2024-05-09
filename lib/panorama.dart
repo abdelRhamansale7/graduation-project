@@ -17,7 +17,7 @@ class VITPage extends StatelessWidget {
           children: <Widget>[
             SafeArea(
               child: Padding(
-                padding: EdgeInsets.only(top: screenHeight * 0.09),
+                padding: EdgeInsets.only(top: screenHeight * 0.009),
                 child: Image.asset("assets/images/app_photo.jpg"),
               ),
             ),

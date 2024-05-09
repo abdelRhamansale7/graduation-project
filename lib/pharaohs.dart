@@ -194,19 +194,19 @@ class _GroubState extends State<Groub> {
               ),
             ),
           ),
-           SizedBox(height: screenHeight*0.005), // Adjust spacing as needed
+           SizedBox(height: screenHeight*0.005), 
           Container(
-            width: screenWidth * 0.03, // Adjust width as needed
-            height: screenHeight * 0.01, // Adjust height as needed
+            width: screenWidth * 0.03, 
+            height: screenHeight * 0.01, 
             decoration: BoxDecoration(
-              color: _selectedPhoto == pharaohData.pharaoh[index]['name'] ? Colors.black : Colors.white,
+              color: _selectedPhoto == pharaohData.pharaoh[index]['name'] ? const Color.fromARGB(199, 146, 112, 57) : Colors.white,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: const Offset(0, 3), // changes position of shadow
+                  offset: const Offset(0, 3), 
                 ),
               ],
             ),
