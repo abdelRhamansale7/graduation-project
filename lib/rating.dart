@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/Text.dart';
+import 'package:pharera/generated/l10n.dart';
 
 class RatingPage extends StatefulWidget {
   const RatingPage({Key? key}) : super(key: key);
@@ -22,15 +24,15 @@ class _RatingPageState extends State<RatingPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Thank you for your Feedback!'),
+          title:  TextW(text: S.of(context).thanks),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text(
-                'OK',
-                style: TextStyle(fontSize: 18, color: Colors.black),
+              child:  TextW(
+                text: S.of(context).ok,
+                
               ),
             ),
           ],
@@ -52,25 +54,25 @@ class _RatingPageState extends State<RatingPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center, // Ensure widgets stretch horizontally
           children: [
-            const Padding(
-              padding: EdgeInsets.only( top: 10),
+             Padding(
+              padding: const EdgeInsets.only( top: 10),
               child: FittedBox(
                 child: Row(
                   children: [
-                    Text("Your Feedback Is Welcome",
-                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800)),
+                    TextW(text:S.of(context).feed,
+                       ),
                   ],
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only( top: screenHeight * 0.04 ,),
-              child: const FittedBox(
+              child:  FittedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text("Rate Us",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+                    TextW(text: S.of(context).rate,
+                       ),
                   ],
                 ),
               ),
@@ -100,9 +102,9 @@ class _RatingPageState extends State<RatingPage> {
               child: TextField(
                 controller: _opinionController,
                 maxLines: 15,
-                decoration: const InputDecoration(
-                  hintText: 'Enter your Feedback...',
-                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                decoration:  InputDecoration(
+                  hintText: S.of(context).enter,
+                  border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                   focusColor: Colors.amber,
                   fillColor: Colors.amber,
                   hoverColor: Colors.amber
@@ -124,7 +126,7 @@ class _RatingPageState extends State<RatingPage> {
                     ),
                     elevation: 5,
                   ),
-                  child: const Text('Submit', style: TextStyle(fontSize: 20, color: Colors.white)),
+                  child:  TextW(text: S.of(context).submit, ),
                 ),
               ),
             ),

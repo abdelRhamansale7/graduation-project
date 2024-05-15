@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/Text.dart';
+import 'package:pharera/generated/l10n.dart';
 import 'package:pharera/main_up.dart';
 import 'package:pharera/navigation_bar.dart';
 import 'package:pharera/notifacation.dart';
@@ -130,9 +132,9 @@ class _GroubState extends State<Groub> {
                             ),
                           );
                         },
-                        child: const Text(
-                          "EXPLORE",
-                          style: TextStyle(color: Colors.black),
+                        child:  TextW(
+                         text: S.of(context).Explore,
+                          
                         ),
                       ),
                     ),

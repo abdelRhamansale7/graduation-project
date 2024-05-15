@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pharera/Fav_page.dart';
 import 'package:pharera/Profile.dart';
+import 'package:pharera/Text.dart';
 import 'package:pharera/about_us.dart';
 import 'package:pharera/contact_us.dart';
+import 'package:pharera/generated/l10n.dart';
 import 'package:pharera/notifacation.dart';
 import 'package:pharera/popular_pharaoh.dart';
 import 'package:pharera/pharaohs.dart';
@@ -68,13 +70,13 @@ class _HomePageState extends State<HomePage>
                 child: Column(children: [
                 ListTile(
                   leading: const Icon(Icons.home),
-                  title: const Text('Home'),
+                  title: TextW(text: S.of(context).home,),
                   onTap: () {},
                 ),
                 const Divider(),
                 ListTile(
                   leading: const Icon(Icons.info),
-                  title: const Text('About Us'),
+                  title:  TextW( text: S.of(context).ABOUT,),
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const aboutus()));
@@ -83,7 +85,7 @@ class _HomePageState extends State<HomePage>
                 const Divider(),
                 ListTile(
                   leading: const Icon(Icons.contact_phone),
-                  title: const Text('Contact Us'),
+                  title:  TextW(text: S.of(context).contact),
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const TabPage()));
@@ -92,7 +94,7 @@ class _HomePageState extends State<HomePage>
                 const Divider(),
                  ListTile(
                   leading: const Icon(Icons.person),
-                  title: const Text('profile'),
+                  title:  TextW(text: S.of(context).profile),
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const ProfilePage()));
@@ -116,24 +118,24 @@ class _HomePageState extends State<HomePage>
         children: [
           SizedBox(
             height: screenHeight * 0.1, 
-            child: Image.asset("assets/images/welcome.jpg"),
+            child:  TextW(text: S.of(context).Welcome,)
           ),
            Padding(
             padding: EdgeInsets.only(top: screenHeight * 0.005),
             child: SizedBox(
               width: screenWidth * 0.95,
-              child: const Expanded(
+              child:  Expanded(
                 child: TextField(
                   decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.search),
-                    hintText: "search",
-                    border: OutlineInputBorder(
+                    suffixIcon: const Icon(Icons.search),
+                    hintText: S.of(context).search,
+                    border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(100.0),
                       ),
                     ),
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                        const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
                   ),
                 ),
               ),
@@ -187,7 +189,7 @@ class _HomePageState extends State<HomePage>
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Ticket()));
+                                builder: (context) =>  const DiscountPage()));
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
@@ -222,7 +224,7 @@ class _HomePageState extends State<HomePage>
               children: [
                 PharaohsScreen(),
                 const Tut(),
-                const Ticket(),
+                 const DiscountPage(),
                 const favpage(),
               ],
             ),

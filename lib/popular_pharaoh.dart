@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharera/Fav_but.dart';
+import 'package:pharera/Text.dart';
+import 'package:pharera/check.dart';
+import 'package:pharera/generated/l10n.dart';
 import 'package:pharera/pharaoh_show.dart';
 import 'package:pharera/pharahosl_ist.dart';
 import 'package:pharera/pharaohs.dart';
@@ -30,7 +33,7 @@ class PharaohsScreen extends StatelessWidget {
                   right: screenWidth * 0.05,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  
                   children: [
                     Container(
                       width: screenWidth * 0.4,
@@ -38,24 +41,27 @@ class PharaohsScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Image.asset("assets/images/explore_word.jpg"),
+                      child:  FittedBox(child: TextW(text: S.of(context).Explore,))
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Groub()),
-                        );
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(left: screenWidth * 0.05, top: screenWidth * 0.07),
-                        child: Container(
-                          width: screenWidth * 0.3,
-                          height: screenWidth * 0.15,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
+                    Expanded(
+                      flex: 2,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Groub()),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(left: IsArab() ? 0 : screenWidth * 0.25,right: IsArab() ? screenWidth * 0.25 : 0, top: screenWidth * 0.07),
+                          child: Container(
+                            width: screenWidth * 0.1,
+                            height: screenWidth * 0.15,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: TextW(text:  S.of(context).seeall,)
                           ),
-                          child: Image.asset("assets/images/see_all.jpg"),
                         ),
                       ),
                     )

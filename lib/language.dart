@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pharera/Text.dart';
+
+class LanguageList extends StatefulWidget {
+  final Function(String) onLocaleSelected;
+
+  const LanguageList({Key? key, required this.onLocaleSelected}) : super(key: key);
+
+  @override
+  _LanguageListState createState() => _LanguageListState();
+}
+
+class _LanguageListState extends State<LanguageList> {
+  late String selectedLanguageCode;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedLanguageCode = 'en'; // Default language code is English
+  }
+
+  @override
+  Widget build(BuildContext context) {
+     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      appBar: AppBar(),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+         Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+           children: [
+             Padding(
+              padding:  EdgeInsets.only(top: screenHeight* 0.04),
+              child: InkWell(
+                onTap: (){
+                  var locale = const Locale('en','Us');
+             Get.updateLocale(locale);
+                },
+                child: Container(
+                  width: screenWidth * 0.6,
+                  height: screenWidth * 0.13,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 3,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child:  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.language, size: 30,),
+                      ),
+                      Center(
+                        child: TextW(
+                         text:  "English", 
+                         
+                        ),
+                      ),
+                     
+                    ],
+                  ),
+                ),
+              ),
+                     ),
+                     Padding(
+          padding:  EdgeInsets.only(top: screenHeight* 0.04),
+          child: InkWell(
+            onTap: (){
+             var locale = const Locale('ar','arb');
+             Get.updateLocale(locale);
+            },
+            child: Container(
+              width: screenWidth * 0.6,
+              height: screenWidth * 0.13,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 3,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child:  const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.language, size: 30,),
+                  ),
+                  Center(
+                    child: TextW(
+                     text:  "العربيه",
+                     
+                    ),
+                  ),
+                 
+                ],
+              ),
+            ),
+          ),
+        ),
+           ],
+         ),
+        
+      ],)
+    );
+  }
+}

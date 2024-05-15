@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/check.dart';
 import 'package:video_player/video_player.dart';
 
 class TutVid extends StatelessWidget {
@@ -39,7 +40,7 @@ class TutVid extends StatelessWidget {
                   },
                   itemBuilder: (_, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: screenWidth * 0.02),
+                      padding: EdgeInsets.only(left: IsArab()? 0:screenWidth * 0.02,right: IsArab()? screenWidth * 0.08:0),
                       child: Stack(
                         children: [
                           Container(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/Text.dart';
+import 'package:pharera/check.dart';
+import 'package:pharera/generated/l10n.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -30,16 +33,13 @@ class SignIn extends StatelessWidget {
               child: Column(
                
                 children: [
-                  const Row(
-                    children: [
-                      Text(
-                        "Email",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ],
+                  Padding(
+                    padding:  EdgeInsets.only(right: IsArab()? screenHeight * 0.02 : 0 ),
+                    child: Row(
+                      children: [
+                       TextW(text: S.of(context).email ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   SizedBox(
@@ -59,17 +59,14 @@ class SignIn extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  const Row(
-                    children: [
-                      Text(
-                        "PASSWORD",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ],
-                  ),
+                   Padding(
+                     padding: EdgeInsets.only(right: IsArab()? screenHeight * 0.02 : 0 ),
+                     child: Row(
+                      children: [
+                       TextW(text:  S.of(context).password),
+                      ],
+                                       ),
+                   ),
                   SizedBox(height: screenHeight * 0.01),
                   SizedBox(
                     width: screenWidth * 0.8,
@@ -90,52 +87,56 @@ class SignIn extends StatelessWidget {
                   SizedBox(height: screenHeight * 0.02),
                   TextButton(
                     onPressed: () {},
-                    child: const Row(
-                      children: [
-                        Text(
-                          "Forget password!",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
+                    child:  Padding(
+                      padding:  EdgeInsets.only(right: IsArab()? screenHeight * 0.02 : 0 ),
+                      child: Row(
+                        children: [
+                          TextW(text: S.of(context).Forget ),
+                        ],
+                      ),
                     ),
                   ),
                   
                   Padding(
-                    padding: EdgeInsets.only(top: screenHeight * 0.04 , left: screenHeight * 0.05),
-                    child: Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: screenWidth * 0.6,
-                          height: 70,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.black,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.5),
+                    padding: EdgeInsets.only(top: screenHeight * 0.04 , left: IsArab()? 0 : screenHeight * 0.02 , right: IsArab()? screenHeight * 0.06 : 0 ),
+                    child:Row(
+  children: [
+    Center(
+      child: GestureDetector(
+        onTap: () {
+          // Add your onTap functionality here
+        },
+        child: Container(
+          width: 300,
+          height: 70,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color.fromARGB(199, 146, 112, 57), Color.fromARGB(169, 255, 255, 255) ,Color.fromARGB(199, 146, 112, 57),], // Gradient colors from gold to white
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                "assets/images/sign_in.jpg",
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                                  offset: const Offset(0, 3), // Shadow position
+              ),
+            ],
+          ),
+          padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
+          alignment: Alignment.center,
+          child:  TextW(
+             text: S.of(context).login, // Text color
+            
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
                   ),
                 ],
               ),

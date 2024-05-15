@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/Text.dart';
+import 'package:pharera/check.dart';
+import 'package:pharera/generated/l10n.dart';
 import 'package:pharera/sign_in.dart';
 
 class Signuo extends StatelessWidget {
@@ -36,16 +39,11 @@ class Signuo extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: screenWidth * 0.1,
                       top: screenHeight * 0.01,
+                      right: IsArab()? screenHeight * 0.04 : 0
                     ),
-                    child: const Row(
+                    child:  Row(
                       children: [
-                        Text(
-                          "FIRST NAME",
-                          style: TextStyle(
-                            fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                          ),
-                        ),
+                       TextW(text: S.of(context).firstname,  )
                       ],
                     ),
                   ),
@@ -72,16 +70,11 @@ class Signuo extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: screenWidth * 0.1,
                       top: screenHeight * 0.01,
+                      right: IsArab()? screenHeight * 0.04 : 0
                     ),
-                    child: const Row(
+                    child:  Row(
                       children: [
-                        Text(
-                          "Email",
-                          style: TextStyle(
-                            fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                          ),
-                        ),
+                       TextW(text: S.of(context).email ,  )
                       ],
                     ),
                   ),
@@ -108,16 +101,11 @@ class Signuo extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: screenWidth * 0.1,
                       top: screenHeight * 0.01,
+                      right: IsArab()? screenHeight * 0.04 : 0
                     ),
-                    child: const Row(
+                    child:  Row(
                       children: [
-                        Text(
-                          "PASSWORD",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
+                        TextW(text:S.of(context).password,  )
                       ],
                     ),
                   ),
@@ -145,17 +133,12 @@ class Signuo extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: screenWidth * 0.1,
                       top: screenHeight * 0.02,
+                      right: IsArab()? screenHeight * 0.04 : 0
                     ),
-                    child: const Expanded(
+                    child:  Expanded(
                       child: Row(
                         children: [
-                          Text(
-                            "CONFIRM PASSWORD",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
+                          TextW(text: S.of(context).Conform,  )
                         ],
                       ),
                     ),
@@ -181,56 +164,57 @@ class Signuo extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: screenHeight * 0.04 , left: screenHeight * 0.09),
+                    padding: EdgeInsets.only(top: screenHeight * 0.04 , right: IsArab()? screenHeight * 0.06 : 0, left:  IsArab()? 0 : screenHeight * 0.07),
                     child: Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: screenWidth * 0.6,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.black,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.5),
+  children: [
+    Center(
+      child: GestureDetector(
+        onTap: () {
+          // Add your onTap functionality here
+        },
+        child: Container(
+          width: 300,
+          height: 70,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color.fromARGB(199, 146, 112, 57), Color.fromARGB(169, 255, 255, 255) ,Color.fromARGB(199, 146, 112, 57),], // Gradient colors from gold to white
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                "assets/images/sign_up.jpg",
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                                  offset: const Offset(0, 3), // Shadow position
+              ),
+            ],
+          ),
+          padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
+          alignment: Alignment.center,
+          child:  TextW(text: S.of(context).signup,  ),
+        ),
+      ),
+    ),
+  ],
+),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
                           left: screenWidth * 0.1,
                           top: screenHeight * 0.05,
                         ),
-                        child: const Text(
-                          "Have an account?",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                          ),
-                        ),
+                        child:  Padding(
+                          padding:  EdgeInsets.only(right: IsArab()? screenHeight * 0.02 : 0 ),
+                          child: TextW(text: S.of(context).haveaccount,  ),
+                        )
                       ),
                       Padding(
-                        padding:  EdgeInsets.only(top: screenHeight*0.05),
+                        padding:  EdgeInsets.only(top: screenHeight*0.05 , left: IsArab()? 0 : screenHeight*0.02),
                         child: TextButton(
                           onPressed: () {
                             Navigator.push(
@@ -238,14 +222,7 @@ class Signuo extends StatelessWidget {
                               MaterialPageRoute(builder: (context) => const SignIn()),
                             );
                           },
-                          child: const Text(
-                            "LOGIN",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
-                            ),
-                          ),
+                          child:  TextW(text: S.of(context).login,  )
                         ),
                       ),
                     ],

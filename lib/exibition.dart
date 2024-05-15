@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharera/exipition_photo.dart';
 import 'package:pharera/exipition_video.dart';
+import 'package:pharera/generated/l10n.dart';
 
 class Tut extends StatefulWidget {
   const Tut({Key? key}) : super(key: key);
@@ -40,15 +41,15 @@ class _TutState extends State<Tut> with SingleTickerProviderStateMixin {
                     
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.grey,
-                    tabs: const [
+                    tabs:  [
                       Expanded(
                         child: Tab(
-                          text: "Images",
+                          text: S.of(context).image,
                         ),
                       ),
                       Expanded(
                         child: Tab(
-                          text: "Videos",
+                          text: S.of(context).video,
                         ),
                       ),
                     ],

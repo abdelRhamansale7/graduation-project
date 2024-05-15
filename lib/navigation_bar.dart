@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pharera/check.dart';
 import 'package:pharera/main_up.dart';
 import 'package:pharera/Panorama.dart';
 import 'package:pharera/register.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:pharera/check.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -56,40 +58,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 20),
-                      child: Container(
-                        width: screenWidth * 0.9,
-                        height: screenHeight * 0.08,
-                        decoration: BoxDecoration(
-                           boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color.fromARGB(199, 146, 112, 57),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          width: screenWidth * 0.9,
+                          height: screenHeight * 0.07,
+                          decoration: BoxDecoration(
+                             boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
-                        child: Row(
-                          
-                          children: [
-                          Container(width: screenWidth*0.45,height: screenHeight*0.08,decoration: BoxDecoration(
+                                            ],
+                            borderRadius: BorderRadius.circular(20),
                             color: const Color.fromARGB(199, 146, 112, 57),
-                            borderRadius: BorderRadius.circular(20)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: Center(child:   _buildIconButton(Icons.home, 0, _isHomeSelected),),
-                          ),),
-                          Container(width:screenWidth*0.45 , decoration: BoxDecoration(color: const Color.fromARGB(199, 146, 112, 57),borderRadius: BorderRadius.circular(20)),
-                          height: screenHeight*0.08 ,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Center(child: _buildIconButton(Icons.person_2, 2, _isRegisterSelected)),
-                          ),)
-                          ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                            Container(width: screenWidth*0.45,height: screenHeight*0.08,decoration: BoxDecoration(
+                              color: const Color.fromARGB(199, 146, 112, 57),
+                              borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Center(child:   _buildIconButton(Icons.home, 0, _isHomeSelected),),
+                            ),),
+                            Container(width:screenWidth*0.45 , decoration: BoxDecoration(color: const Color.fromARGB(199, 146, 112, 57),borderRadius: BorderRadius.circular(20)),
+                            height: screenHeight*0.08 ,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Center(child: _buildIconButton(Icons.person_2, 2, _isRegisterSelected)),
+                            ),)
+                            ],
+                          ),
                         ),
                       ),
                     ),
